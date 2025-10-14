@@ -233,7 +233,7 @@ void BRKGA_CS(const TRunData &runData, const TProblemData &data)
             noImprovBRKGA = 0;
 
             // update the pool of solutions
-            UpdatePoolSolutions(bestInd, method, runData.debug);
+            UpdatePoolSolutions(bestInd, method, runData);
         }
 
         //print
@@ -324,7 +324,7 @@ void BRKGA_CS(const TRunData &runData, const TProblemData &data)
                     noImprovBRKGA = 0;
 
                     // update the pool of solutions
-                    UpdatePoolSolutions(bestInd, method, runData.debug);
+                    UpdatePoolSolutions(bestInd, method, runData);
                 }
 
                 // printf("\n%d: \tBL: %lf", i, Pop[promisingSol[i]].ofv);

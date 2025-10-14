@@ -131,7 +131,7 @@ void IPR(const TRunData &runData, const TProblemData &data)
         currentTime = end_timeMH - start_timeMH;
 
         // update the pool of solutions
-        UpdatePoolSolutions(bestPath, method, runData.debug);
+        UpdatePoolSolutions(bestPath, method, runData);
     }
 }
 

@@ -34,7 +34,7 @@ void MultiStart(const TRunData &runData, const TProblemData &data)
 			sBest = s;
 
             // update the pool of solutions
-            UpdatePoolSolutions(sBest, method, runData.debug);
+            UpdatePoolSolutions(sBest, method, runData);
 		}
 
         IterT++;

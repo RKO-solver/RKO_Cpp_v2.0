@@ -152,7 +152,7 @@ void VNS(const TRunData &runData, const TProblemData &data)
                     improv = 1;
 
                     // update the pool of solutions
-                    UpdatePoolSolutions(sBestLine, method, runData.debug);
+                    UpdatePoolSolutions(sBestLine, method, runData);
                 }
             }
             else

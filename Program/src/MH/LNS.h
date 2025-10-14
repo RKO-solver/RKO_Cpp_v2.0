@@ -201,7 +201,7 @@ void LNS(const TRunData &runData, const TProblemData &data)
                     improv = 1;
 
                     // update the pool of solutions
-                    UpdatePoolSolutions(s, method, runData.debug);
+                    UpdatePoolSolutions(s, method, runData);
                 }
             }
             else
