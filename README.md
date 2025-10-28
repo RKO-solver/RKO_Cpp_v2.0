@@ -15,7 +15,10 @@ Here, we have the RKO version 2.0.1 code. RKO is constantly improving based on u
 When using this algorithm in academic studies, please refer to the following work:
 
 [1] Chaves, A.A., Resende, M.G.C., Schuetz, M.J.A.,  Brubaker, J.K., Katzgraber, H.G., Arruda, E.F., Silva, R.M.A. 
-A Random-Key Optimizer for Combinatorial Optimization. This paper has been submitted to the Journal of Heuristics.
+A Random-Key Optimizer for Combinatorial Optimization. Journal of Heuristics, v. 31, n. 4, p. 32, 2025.
+
+DOI
+https://doi.org/10.1007/s10732-025-09568-z
 
 Available here in technical report form: 
 https://doi.org/10.48550/arXiv.2411.04293
