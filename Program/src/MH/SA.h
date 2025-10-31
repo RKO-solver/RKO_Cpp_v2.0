@@ -160,7 +160,7 @@ void SA(const TRunData &runData, const TProblemData &data)
                         improv = 1;
 
                         // update the pool of solutions
-                        UpdatePoolSolutions(s, method, runData.debug);
+                        UpdatePoolSolutions(s, method, runData);
                     }
                 }
                 else
@@ -218,7 +218,7 @@ void SA(const TRunData &runData, const TProblemData &data)
                 sBest = sViz;
 
                 // update the pool of solutions
-                UpdatePoolSolutions(sBest, method, runData.debug);
+                UpdatePoolSolutions(sBest, method, runData);
             }
 
             // terminate the search process in MAXTIME
