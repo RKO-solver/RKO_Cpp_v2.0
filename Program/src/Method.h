@@ -128,43 +128,48 @@ void CreatePoolSolutions(const TProblemData &data, const int sizePool)
  Method: UpdatePoolSolutions
  Description: Update the pool with different solutions
 *************************************************************************************/
-void UpdatePoolSolutions(TSol s, const char*  mh, const int debug)
+void UpdatePoolSolutions(TSol s, const char*  mh, const TRunData &runData)
 {
     #pragma omp critical
     {   
-        // Checks if it already exists in the pool
-        bool exists = false;
-        for (int i = 0; i < (int)pool.size(); i++) {
-            if (pool[i].ofv == s.ofv) {
-                exists = true;
-                break;
-            }
-        }
-
-        // print that a new best solution was found
-        if (s.ofv < pool[0].ofv && debug) 
-        {
-            // get the current thread ID
-            int thread_id = omp_get_thread_num();   
-            printf("\nBest solution: %.10lf (Thread: %d - MH: %s)", s.ofv, thread_id, mh);
-        } 
-
-        // Goes from back to front
-        if (!exists)
-        {
-            // update the runtime to find this solution
-            s.best_time = get_time_in_seconds();
-    
-            // update the metaheuristic that found this solution
-            strcpy(s.nameMH, mh);
-
-            // insert the new solution
-            int i;
-            for (i = (int)pool.size()-1; i > 0 && pool[i - 1].ofv > s.ofv; i--) {
-                pool[i] = pool[i - 1]; // Push to the right
+        // If the pool is full and the new solution is not better than the worst, skip
+        if ((int)pool.size() < runData.sizePool || fabs(pool.back().ofv - s.ofv) > 1e-9 ) {
+            
+            // Checks if it already exists in the pool
+            bool exists = false;
+            for (int i = 0; i < (int)pool.size(); i++) {
+                if (pool[i].ofv == s.ofv) {
+                    exists = true;
+                    break;
+                }
             }
 
-            pool[i] = s; 
+            if (!exists)
+            {
+                // print that a new best solution was found
+                if (runData.debug && s.ofv < pool.front().ofv) {
+                    int thread_id = omp_get_thread_num();
+                    printf("\nBest solution: %.10lf (Thread: %d - MH: %s)", s.ofv, thread_id, mh);
+                }
+
+                // update the runtime to find this solution
+                s.best_time = get_time_in_seconds();
+        
+                // update the metaheuristic that found this solution
+                strcpy(s.nameMH, mh);
+
+                // insert the new solution
+                auto insert_pos = std::upper_bound(pool.begin(), pool.end(), s, [](const TSol& a, const TSol& b) {
+                    return a.ofv < b.ofv;
+                });
+
+                pool.insert(insert_pos, s);
+
+                // If pool exceeds max size, remove the worst (last)
+                if ((int)pool.size() > runData.sizePool) {
+                    pool.pop_back();
+                }
+            }
         }
     }
 }

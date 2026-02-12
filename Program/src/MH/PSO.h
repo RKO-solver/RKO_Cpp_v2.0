@@ -284,7 +284,7 @@ void PSO(const TRunData &runData, const TProblemData &data)
 
         if (bestGeneration == numGenerations || Gbest.ofv < oldGbest){
             // update the pool of solutions
-            UpdatePoolSolutions(Gbest, method, runData.debug);
+            UpdatePoolSolutions(Gbest, method, runData);
         }
 
         // Q-Learning 

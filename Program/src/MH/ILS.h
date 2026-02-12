@@ -92,7 +92,7 @@ void ILS(const TRunData &runData, const TProblemData &data)
 
     // apply local search
     RVND(sBest, data, runData.strategy, RKorder);
-    UpdatePoolSolutions(sBest, method, runData.debug);
+    UpdatePoolSolutions(sBest, method, runData);
 
     // terminate the search process in MAXTIME
     end_timeMH = get_time_in_seconds();
@@ -143,7 +143,7 @@ void ILS(const TRunData &runData, const TProblemData &data)
             IterImprov = Iter;
             improv = 1;
             // update the pool of solutions
-            UpdatePoolSolutions(sBest, method, runData.debug);
+            UpdatePoolSolutions(sBest, method, runData);
         }
         // else
         // {

@@ -299,7 +299,7 @@ void GRASP(const TRunData &runData, const TProblemData &data)
                 improv = 1;
 
                 // update the pool of solutions
-                UpdatePoolSolutions(sLineBest, method, runData.debug);
+                UpdatePoolSolutions(sLineBest, method, runData);
             }
             // make grid more dense
             else{
