@@ -122,7 +122,7 @@ void CreateStates(std::vector<std::vector<double>> parameters, int &numStates, i
  Method: ChooseAction()
  Description: Choose actions and update the parameters
 *************************************************************************************/
-int ChooseAction(std::vector<TState> S, int st, double epsilon)
+int ChooseAction(const std::vector<TState> &S, int st, double epsilon)
 {
     // ** choose action for current state from Q-Table using epsilon-Greedy policy
     int at;
