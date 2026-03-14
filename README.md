@@ -32,10 +32,10 @@ This code has been designed to solve the Knapsack Problem (KP). To solve other p
 
 * Enter the Program directory: `cd Program`
 * Run the make command: `make rebuild`
-* Run the RKO: `./runTest ../Instances/KP/kp50.txt T`, where T is the maximum running time (in seconds)
-* In Windows: runTest.exe ../Instances/KP/kp50.txt T
+* Run the RKO: `./runRKO ../Instances/KP/kp50.txt T`, where T is the maximum running time (in seconds)
+* In Windows: runRKO.exe ../Instances/KP/kp50.txt T
 
-* Or compile via terminal: `g++ -std=c++20 -o runTest main.cpp -O3 -fopenmp`
+* Or compile via terminal: `g++ -std=c++20 -o runRKO main.cpp -O3 -fopenmp`
 
 
 ## Code structure
