@@ -16,7 +16,7 @@ endif
 
 TARGETDIR = .
 CCFLAGS = -fopenmp -g -O3 -Wall -std=c++2a -Wno-unused-but-set-variable
-TARGET = $(TARGETDIR)/runTest$(EXE)
+TARGET = $(TARGETDIR)/runRKO$(EXE)
 
 debug: CCFLAGS += -g
 release: CCFLAGS += -march=native
