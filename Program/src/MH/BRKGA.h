@@ -276,7 +276,7 @@ void BRKGA(const TRunData &runData, const TProblemData &data)
             bestInd = Pop[0];
         
             // Update pool of solutions
-            UpdatePoolSolutions(Pop[0], method, runData.debug);
+            UpdatePoolSolutions(Pop[0], method, runData);
         }
 
         // if (runData.debug) 
